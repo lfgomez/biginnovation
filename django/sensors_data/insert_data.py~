@@ -1,0 +1,9 @@
+import .models
+
+import sys
+
+def main():
+    print(.models.SensorType.objects.all())
+
+if __name__ == '__main__':
+    main()
