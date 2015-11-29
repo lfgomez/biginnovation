@@ -1,5 +1,4 @@
 #Software Desenvolvido para o Hackathon Inmetrics-Fiap 2015
-#Responsável: Luis Fernando G Gonzalez (luis.gonzalez@inmetrics.com.br)
 #Equipe: Big Inovation
 
 IoT Device prototype
@@ -7,13 +6,21 @@ IoT Device prototype
 Low level data format:
 
 Fixed Header
+
 32 bits ID
+
 32 bits Type
+
 Number Of Variables
+
 Data_0
+
 Data_1
+
 Data_2
+
 Data_n
+
 Fixed Header
 
 Method to analyse in the server:
