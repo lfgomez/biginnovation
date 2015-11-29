@@ -17,6 +17,9 @@ netcat -u -l -p 5050 | while read LINE;
 		do 
 		    if [ $LINE == $Header1 ] || [ $data -eq 1 ]
         							then
+								if [ $LINE == $Header1 ] && [ $data -eq 1 ] 
+								then break
+								fi
 								let data=1
 								echo "$n $LINE"
 								let linha=linha+1
@@ -26,6 +29,7 @@ netcat -u -l -p 5050 | while read LINE;
 											let linha=0
 											if [ ! -f $Type/$ID ]; then echo "ID/I,Type/I,TimeStamp/I,$DullVar">> $Type/$ID; fi
 											echo "$ID,$Type,$timestamp,$variaveis">> $Type/$ID
+											echo "ssh -p 443 45.55.147.197 /home/hackathon/sensors_django/sensors_data/insert_data.py unit=temp1 unixtime=$timestamp data01=$variaveis"
 											timestamp=""
 											variaveis=""
 											DullVar=""
@@ -47,6 +51,10 @@ netcat -u -l -p 5050 | while read LINE;
 											fi
 								if [ $linha -eq 4 ]
 											then
+											#if ! [[ $LINE == '^[0-9]+$' ]]
+											#then
+											#echo "YUP"
+											#fi
 											NumVar=$LINE
 											for i in `seq 1 $NumVar`;
 													    do
